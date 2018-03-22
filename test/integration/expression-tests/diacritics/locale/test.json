@@ -1,5 +1,9 @@
 {
-  "expression": ["==", ["string",["get", "lhs"]], ["get", "rhs"], ["collator", true, false, "de"]],
+  "expression": ["case",
+      ["==", ["resolved-locale", ["collator", true, false, "de"]], "de"],
+      ["==", ["string",["get", "lhs"]], ["get", "rhs"], ["collator", true, false, "de"]],
+      ["!=", ["string",["get", "lhs"]], ["get", "rhs"], ["collator", true, false, "de"]]
+  ],
   "inputs": [
       [{}, {"properties": {"lhs": "ü", "rhs": "ue"}}],
       [{}, {"properties": {"lhs": "ü", "rhs": "u"}}]
