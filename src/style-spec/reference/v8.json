@@ -2500,7 +2500,7 @@
         }
       },
       "==": {
-        "doc": "Returns `true` if the input values are equal, `false` otherwise. Equality is strictly typed: values of different types are always considered not equal. Accepts an optional `collator` argument to control locale-dependent comparisons.",
+        "doc": "Returns `true` if the input values are equal, `false` otherwise. Equality is strictly typed: values of different types are always considered not equal. Accepts an optional `collator` argument to control locale-dependent string comparisons.",
         "group": "Decision",
         "sdk-support": {
           "basic functionality": {
@@ -2509,7 +2509,7 @@
         }
       },
       "!=": {
-        "doc": "Returns `true` if the input values are not equal, `false` otherwise. Equality is strictly typed: values of different types are always considered not equal. Accepts an optional `collator` argument to control locale-dependent comparisons.",
+        "doc": "Returns `true` if the input values are not equal, `false` otherwise. Equality is strictly typed: values of different types are always considered not equal. Accepts an optional `collator` argument to control locale-dependent string comparisons.",
         "group": "Decision",
         "sdk-support": {
           "basic functionality": {

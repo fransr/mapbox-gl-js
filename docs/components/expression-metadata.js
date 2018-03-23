@@ -8,77 +8,95 @@ import '../../src/style-spec/expression/definitions/index';
 const types = {
     '==': [{
         type: 'boolean',
-        parameters: ['string', 'string', 'collator?']
+        parameters: ['string', 'string']
     }, {
         type: 'boolean',
-        parameters: ['number', 'number', 'collator?']
+        parameters: ['string', 'string', 'collator']
     }, {
         type: 'boolean',
-        parameters: ['boolean', 'boolean', 'collator?']
+        parameters: ['number', 'number']
     }, {
         type: 'boolean',
-        parameters: ['null', 'null', 'collator?']
+        parameters: ['boolean', 'boolean']
     }, {
         type: 'boolean',
-        parameters: ['string', 'value', 'collator?']
+        parameters: ['null', 'null']
     }, {
         type: 'boolean',
-        parameters: ['number', 'value', 'collator?']
+        parameters: ['string', 'value']
     }, {
         type: 'boolean',
-        parameters: ['boolean', 'value', 'collator?']
+        parameters: ['string', 'value', 'collator']
     }, {
         type: 'boolean',
-        parameters: ['null', 'value', 'collator?']
+        parameters: ['number', 'value']
     }, {
         type: 'boolean',
-        parameters: ['value', 'string', 'collator?']
+        parameters: ['boolean', 'value']
     }, {
         type: 'boolean',
-        parameters: ['value', 'number', 'collator?']
+        parameters: ['null', 'value']
     }, {
         type: 'boolean',
-        parameters: ['value', 'boolean', 'collator?']
+        parameters: ['value', 'string']
     }, {
         type: 'boolean',
-        parameters: ['value', 'null', 'collator?']
+        parameters: ['value', 'string', 'collator']
+    }, {
+        type: 'boolean',
+        parameters: ['value', 'number']
+    }, {
+        type: 'boolean',
+        parameters: ['value', 'boolean']
+    }, {
+        type: 'boolean',
+        parameters: ['value', 'null']
     }],
     '!=': [{
         type: 'boolean',
-        parameters: ['string', 'string', 'collator?']
+        parameters: ['string', 'string']
     }, {
         type: 'boolean',
-        parameters: ['number', 'number', 'collator?']
+        parameters: ['string', 'string', 'collator']
     }, {
         type: 'boolean',
-        parameters: ['boolean', 'boolean', 'collator?']
+        parameters: ['number', 'number']
     }, {
         type: 'boolean',
-        parameters: ['null', 'null', 'collator?']
+        parameters: ['boolean', 'boolean']
     }, {
         type: 'boolean',
-        parameters: ['string', 'value', 'collator?']
+        parameters: ['null', 'null']
     }, {
         type: 'boolean',
-        parameters: ['number', 'value', 'collator?']
+        parameters: ['string', 'value']
     }, {
         type: 'boolean',
-        parameters: ['boolean', 'value', 'collator?']
+        parameters: ['string', 'value', 'collator']
     }, {
         type: 'boolean',
-        parameters: ['null', 'value', 'collator?']
+        parameters: ['number', 'value']
     }, {
         type: 'boolean',
-        parameters: ['value', 'string', 'collator?']
+        parameters: ['boolean', 'value']
     }, {
         type: 'boolean',
-        parameters: ['value', 'number', 'collator?']
+        parameters: ['null', 'value']
     }, {
         type: 'boolean',
-        parameters: ['value', 'boolean', 'collator?']
+        parameters: ['value', 'string']
     }, {
         type: 'boolean',
-        parameters: ['value', 'null', 'collator?']
+        parameters: ['value', 'string', 'collator']
+    }, {
+        type: 'boolean',
+        parameters: ['value', 'number']
+    }, {
+        type: 'boolean',
+        parameters: ['value', 'boolean']
+    }, {
+        type: 'boolean',
+        parameters: ['value', 'null']
     }],
     string: [{
         type: 'string',
@@ -185,11 +203,17 @@ const types = {
         parameters: ['previously bound variable name']
     }],
     collator: [{
-        type: 'colllator',
+        type: 'collator',
         parameters: [
             'caseSensitive: boolean',
             'diacriticSensitive: boolean',
-            'locale?: string'
+        ]
+    }, {
+        type: 'collator',
+        parameters: [
+            'caseSensitive: boolean',
+            'diacriticSensitive: boolean',
+            'locale: string'
         ]
     }]
 };

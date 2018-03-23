@@ -61,6 +61,9 @@ function makeComparison(negate) {
 
             let collator = null;
             if (args.length === 4) {
+                if (lhs.type.kind !== 'string' && rhs.type.kind !== 'string') {
+                    return context.error(`Cannot use collator to compare non-string types.`);
+                }
                 collator = context.parse(args[3], 3, CollatorType);
                 if (!collator) return null;
             }
