@@ -183,6 +183,14 @@ const types = {
     var: [{
         type: 'the type of the bound expression',
         parameters: ['previously bound variable name']
+    }],
+    collator: [{
+        type: 'colllator',
+        parameters: [
+            'caseSensitive: boolean',
+            'diacriticSensitive: boolean',
+            'locale: string'
+        ]
     }]
 };
 
