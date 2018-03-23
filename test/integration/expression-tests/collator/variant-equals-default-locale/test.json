@@ -1,7 +1,8 @@
 {
-  "expression": ["==", ["string",["get", "lhs"]], ["get", "rhs"], ["collator", false, false]],
+  "expression": ["==", ["string",["get", "lhs"]], ["get", "rhs"], ["collator", true, true]],
   "inputs": [
       [{}, {"properties": {"lhs": "a", "rhs": "ä"}}],
+      [{}, {"properties": {"lhs": "a", "rhs": "A"}}],
       [{}, {"properties": {"lhs": "b", "rhs": "ä"}}]
   ],
   "expected": {
@@ -11,7 +12,7 @@
       "isZoomConstant": true,
       "type": "boolean"
     },
-    "outputs": [true, false],
+    "outputs": [false, false, false],
     "serialized": "string"
   }
 }
