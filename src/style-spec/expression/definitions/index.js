@@ -73,6 +73,11 @@ function gt(ctx, [a, b]) { return a.evaluate(ctx) > b.evaluate(ctx); }
 function lteq(ctx, [a, b]) { return a.evaluate(ctx) <= b.evaluate(ctx); }
 function gteq(ctx, [a, b]) { return a.evaluate(ctx) >= b.evaluate(ctx); }
 
+function ltCollate(ctx, [a, b, c]) { return c.evaluate(ctx).compare(a.evaluate(ctx), b.evaluate(ctx)) < 0; }
+function gtCollate(ctx, [a, b, c]) { return c.evaluate(ctx).compare(a.evaluate(ctx), b.evaluate(ctx)) > 0; }
+function lteqCollate(ctx, [a, b, c]) { return c.evaluate(ctx).compare(a.evaluate(ctx), b.evaluate(ctx)) <= 0; }
+function gteqCollate(ctx, [a, b, c]) { return c.evaluate(ctx).compare(a.evaluate(ctx), b.evaluate(ctx)) >= 0; }
+
 function binarySearch(v, a, i, j) {
     while (i <= j) {
         const m = (i + j) >> 1;
@@ -435,28 +440,32 @@ CompoundExpression.register(expressions, {
         type: BooleanType,
         overloads: [
             [[NumberType, NumberType], gt],
-            [[StringType, StringType], gt]
+            [[StringType, StringType], gt],
+            [[StringType, StringType, CollatorType], gtCollate]
         ]
     },
     '<': {
         type: BooleanType,
         overloads: [
             [[NumberType, NumberType], lt],
-            [[StringType, StringType], lt]
+            [[StringType, StringType], lt],
+            [[StringType, StringType, CollatorType], ltCollate]
         ]
     },
     '>=': {
         type: BooleanType,
         overloads: [
             [[NumberType, NumberType], gteq],
-            [[StringType, StringType], gteq]
+            [[StringType, StringType], gteq],
+            [[StringType, StringType, CollatorType], gteqCollate]
         ]
     },
     '<=': {
         type: BooleanType,
         overloads: [
             [[NumberType, NumberType], lteq],
-            [[StringType, StringType], lteq]
+            [[StringType, StringType], lteq],
+            [[StringType, StringType, CollatorType], lteqCollate]
         ]
     },
     'all': {

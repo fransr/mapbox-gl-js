@@ -2518,7 +2518,7 @@
         }
       },
       ">": {
-        "doc": "Returns `true` if the first input is strictly greater than the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type.",
+        "doc": "Returns `true` if the first input is strictly greater than the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type. Accepts an optional `collator` argument to control locale-dependent string comparisons.",
         "group": "Decision",
         "sdk-support": {
           "basic functionality": {
@@ -2527,7 +2527,7 @@
         }
       },
       "<": {
-        "doc": "Returns `true` if the first input is strictly less than the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type.",
+        "doc": "Returns `true` if the first input is strictly less than the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type. Accepts an optional `collator` argument to control locale-dependent string comparisons.",
         "group": "Decision",
         "sdk-support": {
           "basic functionality": {
@@ -2536,7 +2536,7 @@
         }
       },
       ">=": {
-        "doc": "Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type.",
+        "doc": "Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type. Accepts an optional `collator` argument to control locale-dependent string comparisons.",
         "group": "Decision",
         "sdk-support": {
           "basic functionality": {
@@ -2545,7 +2545,7 @@
         }
       },
       "<=": {
-        "doc": "Returns `true` if the first input is less than or equal to the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type.",
+        "doc": "Returns `true` if the first input is less than or equal to the second, `false` otherwise. The inputs must be numbers or strings, and both of the same type. Accepts an optional `collator` argument to control locale-dependent string comparisons.",
         "group": "Decision",
         "sdk-support": {
           "basic functionality": {
