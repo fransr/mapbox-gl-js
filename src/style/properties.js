@@ -574,6 +574,8 @@ export class DataDrivenProperty<T> implements Property<T, PossiblyEvaluatedPrope
             return value.evaluate(globals, feature);
         }
     }
+
+    getPossibleOutputs() { return []; }
 }
 
 /**
@@ -584,13 +586,18 @@ export class DataDrivenProperty<T> implements Property<T, PossiblyEvaluatedPrope
  */
 
 export class CrossFadedDataDrivenProperty<T> extends DataDrivenProperty<?CrossFaded<T>> {
+    possibleOutputs: Array<T>;
+
     possiblyEvaluate(value: PropertyValue<?CrossFaded<T>, PossiblyEvaluatedPropertyValue<?CrossFaded<T>>>, parameters: EvaluationParameters): PossiblyEvaluatedPropertyValue<?CrossFaded<T>> {
+        this.possibleOutputs = [];
         if (value.value === undefined) {
             return new PossiblyEvaluatedPropertyValue(this, {kind: 'constant', value: undefined}, parameters);
         } else if (value.expression.kind === 'constant') {
             const constant = value.expression.evaluate(parameters);
+            this.possibleOutputs.push(constant);
             return new PossiblyEvaluatedPropertyValue(this, {kind: 'constant', value: this._calculate(constant, constant, constant, parameters)}, parameters);
         } else if (value.expression.kind === 'camera') {
+            this.possibleOutputs = (value.expression: any)._styleExpression.expression.possibleOutputs();
             const cameraVal = this._calculate(
                 value.expression.evaluate({zoom: parameters.zoom - 1.0}),
                 value.expression.evaluate({zoom: parameters.zoom}),
@@ -602,6 +609,9 @@ export class CrossFadedDataDrivenProperty<T> extends DataDrivenProperty<?CrossFa
         }
     }
 
+    getPossibleOutputs() {
+        return this.possibleOutputs;
+    }
 
     evaluate(value: PossiblyEvaluatedValue<?CrossFaded<T>>, globals: EvaluationParameters, feature: Feature): ?CrossFaded<T> {
         if (value.kind === 'source') {
