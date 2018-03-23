@@ -33,9 +33,9 @@ function makeComparison(negate) {
         type: Type;
         lhs: Expression;
         rhs: Expression;
-        collator: Expression;
+        collator: Expression | null;
 
-        constructor(lhs: Expression, rhs: Expression, collator: Expression) {
+        constructor(lhs: Expression, rhs: Expression, collator: Expression | null) {
             this.type = BooleanType;
             this.lhs = lhs;
             this.rhs = rhs;
@@ -59,7 +59,7 @@ function makeComparison(negate) {
                 return context.error(`Cannot compare ${toString(lhs.type)} and ${toString(rhs.type)}.`);
             }
 
-            let collator;
+            let collator = null;
             if (args.length === 4) {
                 collator = context.parse(args[3], 3, CollatorType);
                 if (!collator) return null;
@@ -79,6 +79,9 @@ function makeComparison(negate) {
         eachChild(fn: (Expression) => void) {
             fn(this.lhs);
             fn(this.rhs);
+            if (this.collator) {
+                fn(this.collator);
+            }
         }
 
         possibleOutputs() {
